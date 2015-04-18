@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AIAttackScript.cs" />
+     <Compile Include="Assets\AttachWeaponScript.cs" />
+     <Compile Include="Assets\CameraScript.cs" />
+     <Compile Include="Assets\CitizenScript.cs" />
+     <Compile Include="Assets\PopupMessageScript.cs" />
+     <Compile Include="Assets\StatsScript.cs" />
+     <Compile Include="Assets\WaveScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/build/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

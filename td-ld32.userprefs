@@ -1,8 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AIAttackScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CitizenScript.cs">
     <Files>
-      <File FileName="Assets\AIAttackScript.cs" Line="10" Column="64" />
+      <File FileName="Assets\AIAttackScript.cs" Line="16" Column="1" />
+      <File FileName="Assets\CitizenScript.cs" Line="12" Column="2" />
+      <File FileName="Assets\PopupMessageScript.cs" Line="25" Column="46" />
+      <File FileName="Assets\StatsScript.cs" Line="23" Column="73" />
+      <File FileName="Assets\CameraScript.cs" Line="5" Column="1" />
+      <File FileName="Assets\WaveScript.cs" Line="52" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
