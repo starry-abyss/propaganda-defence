@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class AIAttackScript : MonoBehaviour {
 
@@ -8,10 +9,42 @@ public class AIAttackScript : MonoBehaviour {
 	bool stopped = false;
 	NavMeshAgent agent;
 	
-	void Stop()
+	public int hp = 1;
+	GameObject canvas;
+	
+	public void Hit(int points)
 	{
-		stopped = true;
+		hp -= points;
+		
+		if (points > 0)
+		{
+			//print(23);
+			GameObject message = (GameObject) Instantiate(Resources.Load("prefabs/message"));
+			Vector3 pos = GetComponent<Collider>().bounds.center;
+			
+			pos.y = 0;
+			message.GetComponentInChildren<PopupMessageScript>().pos = pos;
+			//transform.position/* + new Vector3(0,0,10.0f)*/;
+			message.GetComponent<RectTransform>().SetParent(canvas.transform);
+			message.transform.SetSiblingIndex(0);
+			message.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+			message.GetComponentInChildren<Text>().text = (-points).ToString();
+		}
+		
+		if (hp <= 0)
+			Stop();
+	}
+	
+	public bool IsStopped()
+	{
+		return stopped;
+	}
+	
+	public void Stop()
+	{
 		agent.SetDestination(home);
+		stopped = true;
+		Destroy(gameObject);
 	}
 
 	// Use this for initialization
@@ -22,6 +55,8 @@ public class AIAttackScript : MonoBehaviour {
 		
 		//GetComponent<NavMeshAgent>().SetDestination(target.position);
 		agent.updateRotation = false;
+		
+		canvas = GameObject.Find("Canvas");
 	}
 	
 	// Update is called once per frame
@@ -30,6 +65,7 @@ public class AIAttackScript : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+
 		//GetComponent<NavMeshAgent>().velocity = ;
 	}
 }

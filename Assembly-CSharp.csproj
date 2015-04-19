@@ -52,7 +52,12 @@
      <Compile Include="Assets\CitizenScript.cs" />
      <Compile Include="Assets\PopupMessageScript.cs" />
      <Compile Include="Assets\StatsScript.cs" />
+     <Compile Include="Assets\WaveManagerScript.cs" />
      <Compile Include="Assets\WaveScript.cs" />
+     <Compile Include="Assets\WeaponSelectScript.cs" />
+     <Compile Include="Assets\WeaponShopScript.cs" />
+     <None Include="Assets\fonts\LICENSE.txt" />
+     <None Include="Assets\fonts\FONTLOG.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/build/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

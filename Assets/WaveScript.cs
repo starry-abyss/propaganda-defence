@@ -6,20 +6,47 @@ public class WaveScript : MonoBehaviour {
 	public string waveName;
 	public int workerCount;
 	public int blondeCount;
+	public int sailorCount;
 	float spawnTimer;
 	
 	int workerLeft;
 	int blondeLeft;
+	int sailorLeft;
 	//int ;
+	
+	//public int stoppedCitizens = 0;
+	
+	public bool WaveComplete()
+	{
+		if (workerLeft + blondeLeft + sailorLeft > 0) return false;
+		bool complete = true;
+		GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
+		for (int i = 0; i != citizens.Length; ++i)
+		{
+			if (!citizens[i].GetComponent<AIAttackScript>().IsStopped())
+			{
+				complete = false;
+				break;
+			}
+		}
+		return complete;
+	}
 	
 	public void StartWave()
 	{
-		print(waveName);
+		//print(waveName);
 		StatsScript building = GameObject.Find("buildingCenter").GetComponent<StatsScript>();
 		building.Repair();
+		
+		AttachWeaponScript[] aws = GameObject.Find("Buildings").GetComponentsInChildren<AttachWeaponScript>();
+		for (int i = 0; i != aws.Length; ++i)
+		{
+			aws[i].ResetCooldown();
+		}
 	
 		workerLeft = workerCount;
 		blondeLeft = blondeCount;
+		sailorLeft = sailorCount;
 	}
 
 	// Use this for initialization
@@ -44,6 +71,11 @@ public class WaveScript : MonoBehaviour {
 				type = CitizenScript.CitizenTypes.Blonde;
 				--blondeLeft;
 			}
+			else if (sailorLeft > 0)
+			{
+				type = CitizenScript.CitizenTypes.Sailor;
+				--sailorLeft;
+			}
 			
 			//print(workerLeft);
 			
@@ -57,8 +89,8 @@ public class WaveScript : MonoBehaviour {
 				//print("min " + ground.bounds.min.ToString());
 				//print("max " + ground.bounds.max.ToString());
 				
-				if (Random.Range(0, 2) == 0)
-				{
+				/*if (Random.Range(0, 2) == 0)
+				{*/
 					pos.z = Random.Range(ground.bounds.min.z, ground.bounds.max.z);
 				
 					if (Random.Range(0, 2) == 0)
@@ -69,7 +101,7 @@ public class WaveScript : MonoBehaviour {
 					{
 						pos.x = ground.bounds.max.x;
 					}
-				}
+				/*}
 				else
 				{
 					pos.x = Random.Range(ground.bounds.min.x, ground.bounds.max.x);
@@ -82,9 +114,9 @@ public class WaveScript : MonoBehaviour {
 					{
 						pos.z = ground.bounds.max.z;
 					}
-				}
+				}*/
 				
-				print(pos);
+				//print(pos);
 				
 			
 				GameObject citizen = (GameObject) Instantiate(Resources.Load("prefabs/citizen"), pos, Quaternion.Euler(new Vector3(90, 0, 0)));

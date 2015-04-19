@@ -13,10 +13,10 @@ GameObject:
   - 114: {fileID: 11411360}
   - 33: {fileID: 3369630}
   - 23: {fileID: 2373558}
-  - 136: {fileID: 13601380}
+  - 136: {fileID: 13660002}
   m_Layer: 0
   m_Name: citizen
-  m_TagString: Untagged
+  m_TagString: Citizen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167110}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: -9.50044155, y: 1.19209282e-07, z: -2.46463847}
+  m_LocalPosition: {x: -2.6332798, y: 1, z: -3.46578407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,7 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   home: {x: 0, y: 0, z: 0}
---- !u!136 &13601380
+  hp: 1
+--- !u!136 &13660002
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,7 +97,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .400000006
+  m_Radius: .200000003
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -1}
@@ -107,7 +108,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167110}
   m_Enabled: 1
-  m_Radius: .400000006
+  m_Radius: .200000003
   m_Speed: 5
   m_Acceleration: 100
   avoidancePriority: 50
