@@ -16,7 +16,7 @@ public class WeaponSelectScript : MonoBehaviour {
 	public void Select ()
 	{
 		GameObject.Find("WeaponShop").GetComponent<WeaponShopScript>().Select(weapon);
-		print(gameObject.name);	
+		//print(gameObject.name);	
 	}
 	
 	// Update is called once per frame

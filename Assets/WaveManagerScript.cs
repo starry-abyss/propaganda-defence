@@ -25,6 +25,8 @@ public class WaveManagerScript : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(3.0f);
 		
+		//StatsScript.money += 100;
+		StatsScript.money += (currentWave + 1) * 200;
 		waveAnnounce.SetActive(false);
 		waveScripts[currentWave].StartWave();
 		waveStarted = true;
@@ -34,13 +36,15 @@ public class WaveManagerScript : MonoBehaviour {
 	void Start () {
 		waveScripts = GetComponents<WaveScript>();
 		waveAnnounce = GameObject.Find("WaveAnnounce");
-		currentWave = 6;
+		currentWave = -1;
 		Announce();
 	}
 	
 	public void Announce()
 	{
 		++currentWave;
+		
+		//StatsScript.money += (currentWave + 1) * 100;
 		
 		waveAnnounce.transform.Find("WaveNumber").GetComponent<Text>().text = "Wave " + (currentWave + 1).ToString();
 		waveAnnounce.transform.Find("WaveName").GetComponent<Text>().text = waveScripts[currentWave].waveName;

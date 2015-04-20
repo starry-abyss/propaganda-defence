@@ -105,7 +105,7 @@ public class StatsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		money = 1000;
+		money = 0;
 		
 		healthDropTimer = Time.time;
 		canvas = GameObject.Find("Canvas");

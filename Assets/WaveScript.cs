@@ -14,6 +14,16 @@ public class WaveScript : MonoBehaviour {
 	int sailorLeft;
 	//int ;
 	
+	int[][] combinations = 
+	{
+		new int[] {0,1,2},
+		new int[] {0,2,1},
+		new int[] {1,2,0},
+		new int[] {1,0,2},
+		new int[] {2,0,1},
+		new int[] {2,1,0}
+	};
+	
 	//public int stoppedCitizens = 0;
 	
 	public bool WaveComplete()
@@ -54,6 +64,48 @@ public class WaveScript : MonoBehaviour {
 		spawnTimer = Time.time;
 	}
 	
+	bool CheckWorker(out CitizenScript.CitizenTypes type)
+	{
+		if (workerLeft > 0)
+		{
+			type = CitizenScript.CitizenTypes.Worker;
+			--workerLeft;
+			return true;
+		}
+		
+		type = CitizenScript.CitizenTypes.None;
+		
+		return false;
+	}
+	
+	bool CheckBlonde(out CitizenScript.CitizenTypes type)
+	{
+		if (blondeLeft > 0)
+		{
+			type = CitizenScript.CitizenTypes.Blonde;
+			--blondeLeft;
+			return true;
+		}
+		
+		type = CitizenScript.CitizenTypes.None;
+		
+		return false;
+	}
+	
+	bool CheckSailor(out CitizenScript.CitizenTypes type)
+	{
+		if (sailorLeft > 0)
+		{
+			type = CitizenScript.CitizenTypes.Sailor;
+			--sailorLeft;
+			return true;
+		}
+		
+		type = CitizenScript.CitizenTypes.None;
+		
+		return false;
+	}
+	
 	// Update is called once per frame
 	void Update () {
 		if (spawnTimer + 1.0f < Time.time)
@@ -61,21 +113,27 @@ public class WaveScript : MonoBehaviour {
 			spawnTimer = Time.time;
 			
 			CitizenScript.CitizenTypes type = CitizenScript.CitizenTypes.None;
-			if (workerLeft > 0)
+			
+			int c = Random.Range(0, combinations.Length);
+			for (int i = 0; i != 3; ++i)
 			{
-				type = CitizenScript.CitizenTypes.Worker;
-				--workerLeft;
+				if (combinations[c][i] == 0)
+				{
+					if (CheckWorker(out type)) break;
+				}
+				else if (combinations[c][i] == 1)
+				{
+					if (CheckBlonde(out type)) break;
+				}
+				else if (combinations[c][i] == 2)
+				{
+					if (CheckSailor(out type)) break;
+				}
 			}
-			else if (blondeLeft > 0)
-			{
-				type = CitizenScript.CitizenTypes.Blonde;
-				--blondeLeft;
-			}
-			else if (sailorLeft > 0)
-			{
-				type = CitizenScript.CitizenTypes.Sailor;
-				--sailorLeft;
-			}
+			
+			/*if (!CheckWorker(out type))
+			if (!CheckBlonde(out type))
+			CheckSailor(out type);*/
 			
 			//print(workerLeft);
 			

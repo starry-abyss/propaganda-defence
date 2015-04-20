@@ -100,6 +100,7 @@ public class AttachWeaponScript : MonoBehaviour {
 			if ((target == null) || (citizenAI == target))
 			{
 				bool hit = false;
+				int moneyEarned = 0;
 				if (m_type == WeaponTypes.LieGenerator)
 				{
 					hit = true;
@@ -108,19 +109,38 @@ public class AttachWeaponScript : MonoBehaviour {
 				{
 					targetPointerLine.SetColors(new Color(0.811f, 0.713f, 0.368f), new Color(0.811f, 0.713f, 0.368f));
 					if (citizen.GetType() == CitizenScript.CitizenTypes.Worker)
+					{
 						hit = true;
+						moneyEarned = 10;
+					}
+					else if (citizen.GetType() == CitizenScript.CitizenTypes.Sailor)
+					{
+						hit = true;
+						moneyEarned = 40;
+					}
 				}
 				else if (m_type == WeaponTypes.ShoppingCenter)
 				{
 					targetPointerLine.SetColors(new Color(0.972f, 0.388f, 0.388f), new Color(0.972f, 0.388f, 0.388f));
 					if (citizen.GetType() == CitizenScript.CitizenTypes.Blonde)
+					{
 						hit = true;
+						moneyEarned = 20;
+					}
 				}
 				else if (m_type == WeaponTypes.Brothel)
 				{
 					targetPointerLine.SetColors(new Color(0.145f, 0.054f, 0.533f), new Color(0.145f, 0.054f, 0.533f));
 					if (citizen.GetType() == CitizenScript.CitizenTypes.Sailor)
+					{
 						hit = true;
+						moneyEarned = 40;
+					}
+					else if (citizen.GetType() == CitizenScript.CitizenTypes.Worker)
+					{
+						hit = true;
+						moneyEarned = 10;
+					}
 				}
 				
 				/*if (target == null)
@@ -143,7 +163,7 @@ public class AttachWeaponScript : MonoBehaviour {
 					if (m_type == WeaponTypes.LieGenerator)
 					{
 						//citizenAI.Stop();
-						citizenAI.Hit(7);
+						citizenAI.Hit(10);
 					}
 					else if (m_type == WeaponTypes.DrinkSpot)
 					{
@@ -168,7 +188,7 @@ public class AttachWeaponScript : MonoBehaviour {
 					//targetPointer.Stop();
 					targetPointerLine.enabled = false;
 					
-					int moneyEarned = 100;
+					
 					StatsScript.money += moneyEarned;
 					
 					//print(23);
