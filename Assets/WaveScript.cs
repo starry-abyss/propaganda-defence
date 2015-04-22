@@ -33,7 +33,8 @@ public class WaveScript : MonoBehaviour {
 		GameObject[] citizens = GameObject.FindGameObjectsWithTag("Citizen");
 		for (int i = 0; i != citizens.Length; ++i)
 		{
-			if (!citizens[i].GetComponent<AIAttackScript>().IsStopped())
+			AIAttackScript aias = citizens[i].GetComponent<AIAttackScript>();
+			if ((aias != null) && !aias.IsStopped())
 			{
 				complete = false;
 				break;

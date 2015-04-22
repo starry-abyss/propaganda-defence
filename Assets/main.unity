@@ -76,7 +76,7 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: .5
+    agentRadius: .300000012
     agentHeight: 2
     agentSlope: 45
     agentClimb: .400000006
@@ -84,7 +84,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: .166666672
+    cellSize: .100000001
     manualCellSize: 0
   m_NavMeshData: {fileID: 23800000, guid: 8986da7844c7966419ee0588de552963, type: 2}
 --- !u!4 &2250968 stripped
@@ -775,10 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3382,15 +3382,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430852, guid: cfece117b6409e64aae197e643bffd1b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.6595516
+      value: -14.4899998
       objectReference: {fileID: 0}
     - target: {fileID: 430852, guid: cfece117b6409e64aae197e643bffd1b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.3718643
+      value: 22.3700008
       objectReference: {fileID: 0}
     - target: {fileID: 430852, guid: cfece117b6409e64aae197e643bffd1b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -20.5581894
+      value: -20.5599995
       objectReference: {fileID: 0}
     - target: {fileID: 430852, guid: cfece117b6409e64aae197e643bffd1b, type: 2}
       propertyPath: m_LocalRotation.x
